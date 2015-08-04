@@ -650,7 +650,7 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener{
                     SalutDevice foundDevice = new SalutDevice(device, record);
 
                     foundDevices.add(foundDevice);
-                    if(!firstDeviceAlreadyFound && !callContinously)
+                    if(!firstDeviceAlreadyFound)
                     {
                         onDeviceFound.call();
                         firstDeviceAlreadyFound = true;
