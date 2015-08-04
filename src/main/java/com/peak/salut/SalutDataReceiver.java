@@ -1,6 +1,6 @@
 package com.peak.salut;
 
-import android.app.Activity;
+import android.content.Context;
 
 import com.peak.salut.Callbacks.SalutDataCallback;
 
@@ -10,9 +10,9 @@ import com.peak.salut.Callbacks.SalutDataCallback;
 public class SalutDataReceiver {
 
     protected SalutDataCallback dataCallback;
-    protected Activity currentContext;
+    protected Context currentContext;
 
-    public SalutDataReceiver(Activity activity, SalutDataCallback dataCallback)
+    public SalutDataReceiver(Context activity, SalutDataCallback dataCallback)
     {
         this.dataCallback = dataCallback;
         this.currentContext = activity;
