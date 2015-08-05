@@ -218,11 +218,7 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 				@Override
 				public void onGroupInfoAvailable(WifiP2pGroup group)
 				{
-					if (group.getClientList().isEmpty())
-					{
-						return;
-					}
-					else
+					if (group != null && group.getClientList() != null && !group.getClientList().isEmpty())
 					{
 						startHostRegistrationServer();
 					}
@@ -717,13 +713,13 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 			@Override
 			public void onDnsSdTxtRecordAvailable(String serviceFullDomainName, Map<String, String> record, WifiP2pDevice device)
 			{
-				for (SalutDevice found : foundDevices)
-				{
-					if (found.deviceName.equals(device.deviceName))
-					{
-						return;
-					}
-				}
+//				for (SalutDevice found : foundDevices)
+//				{
+//					if (found.deviceName.equals(device.deviceName))
+//					{
+//						return;
+//					}
+//				}
 
 				if (record.containsValue(thisDevice.serviceName) && record.containsKey(ALERT_ID))
 				{
@@ -789,7 +785,7 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 					int alertType = Integer.parseInt(record.get(ALERT_TYPE_ID));
 
 					foundDevices.add(foundDevice);
-					if (!firstDeviceAlreadyFound && !callContinously)
+					if (!firstDeviceAlreadyFound)
 					{
 						onDeviceFound.onDeviceFound(foundDevice, alertId, reporterId, alertType);
 						firstDeviceAlreadyFound = true;
@@ -972,7 +968,7 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 
 		foundDevices.clear();
 
-		if (manager != null && channel != null)
+		if (manager != null && channel != null && serviceRequest != null)
 		{
 			manager.removeServiceRequest(channel, serviceRequest, new WifiP2pManager.ActionListener()
 			{
