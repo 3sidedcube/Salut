@@ -256,8 +256,8 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 
 	public static void disableWiFi(Context context)
 	{
-		wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-		wifiManager.setWifiEnabled(false);
+//		wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+//		wifiManager.setWifiEnabled(false);
 	}
 
 	public static boolean hotspotIsEnabled(Context context)
