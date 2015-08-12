@@ -518,7 +518,7 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 		});
 	}
 
-	private void createService(int alertId, int alertType, final SalutCallback onSuccess, final SalutCallback onFailure)
+	private void createService(String alertId, int alertType, final SalutCallback onSuccess, final SalutCallback onFailure)
 	{
 
 		Log.d(TAG, "Starting " + thisDevice.serviceName + " Transport Protocol " + TTP);
@@ -612,15 +612,15 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 
 	public void startNetworkService(SalutDeviceCallback onDeviceRegisteredWithHost)
 	{
-		startNetworkService(-1, -1, onDeviceRegisteredWithHost, null, null);
+		startNetworkService("null", -1, onDeviceRegisteredWithHost, null, null);
 	}
 
-	public void startNetworkService(int alertId, int alertType, SalutDeviceCallback onDeviceRegisteredWithHost)
+	public void startNetworkService(String alertId, int alertType, SalutDeviceCallback onDeviceRegisteredWithHost)
 	{
 		startNetworkService(alertId, alertType, onDeviceRegisteredWithHost, null, null);
 	}
 
-	public void startNetworkService(int alertId, int alertType, @Nullable SalutDeviceCallback onDeviceRegisteredWithHost, @Nullable SalutCallback onSuccess, @Nullable SalutCallback onFailure)
+	public void startNetworkService(String alertId, int alertType, @Nullable SalutDeviceCallback onDeviceRegisteredWithHost, @Nullable SalutCallback onSuccess, @Nullable SalutCallback onFailure)
 	{
 		// In order to have a service that you create be seen, you must also actively look for other services. This is an Android bug.
 		// For more information, read here. https://code.google.com/p/android/issues/detail?id=37425
