@@ -780,7 +780,7 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 				if (record.containsValue(thisDevice.serviceName) && record.containsKey(ALERT_ID))
 				{
 					SalutDevice foundDevice = new SalutDevice(device, record);
-					int alertId = Integer.parseInt(record.get(ALERT_ID));
+					String alertId = record.get(ALERT_ID);
 					String reporterId = record.get(REPORTER_ID);
 					int alertType = Integer.parseInt(record.get(ALERT_TYPE_ID));
 
