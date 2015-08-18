@@ -599,7 +599,7 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 			cleanUpDeviceConnection(false);
 			disconnectFromDevice();
 		}
-		else if (registeredHost.serviceAddress != null)
+		else if (registeredHost != null)
 		{
 			startRegistrationForClient(new InetSocketAddress(registeredHost.serviceAddress, SALUT_SERVER_PORT));
 		}
