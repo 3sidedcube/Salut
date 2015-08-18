@@ -37,7 +37,7 @@ public class Salut implements WifiP2pManager.ConnectionInfoListener
 	protected static final String ALERT_ID = "alert_id";
 	protected static final String REPORTER_ID = "reporter_id";
 	protected static final String ALERT_TYPE_ID = "alert_type_id";
-	private static final int SALUT_SERVER_PORT = 19448;
+	private static final int SALUT_SERVER_PORT = 37501;
 	private static final int MAX_CLIENT_CONNECTIONS = 5;
 	private static final int MAX_SERVER_CONNECTIONS = 25;
 	private static final int BUFFER_SIZE = 65536;
